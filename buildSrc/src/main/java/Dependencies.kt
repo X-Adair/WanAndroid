@@ -17,6 +17,9 @@ object AndroidVersion {
 
 object Versions {
     const val kotlin_version = "1.3.72"
+    const val retrofit = "2.9.0"
+    const val okHttp = "4.7.2"
+    const val gson = "2.8.6"
 }
 
 object Plugins {
@@ -33,4 +36,11 @@ object Libs {
     const val junit = "junit:junit:4.12"
     const val test_junit = "androidx.test.ext:junit:1.1.1"
     const val test_espresso_core = "androidx.test.espresso:espresso-core:3.2.0"
+
+    const val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
+    const val retrofit_gson = "com.squareup.retrofit2:converter-gson:${Versions.retrofit}"
+    const val okHttp = "com.squareup.okhttp3:okhttp:${Versions.okHttp}"
+    const val okHttp_logging_interceptor = "com.squareup.okhttp3:logging-interceptor:${Versions.okHttp}"
+    const val gson = "com.google.code.gson:gson:${Versions.gson}"
+
 }

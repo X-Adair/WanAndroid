@@ -32,4 +32,15 @@ dependencies {
     testImplementation Libs.junit
     androidTestImplementation Libs.test_junit
     androidTestImplementation Libs.test_espresso_core
+
+    implementation(Libs.gson)
+    implementation(Libs.okHttp)
+    implementation(Libs.okHttp_logging_interceptor)
+    implementation(Libs.retrofit) {
+        exclude group: 'com.squareup.okhttp3'
+    }
+    implementation(Libs.retrofit_gson) {
+        exclude group: 'com.squareup.retrofit2'
+        exclude group: 'com.google.code.gson'
+    }
 }
