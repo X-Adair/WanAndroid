@@ -1,17 +1,17 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
-
+apply from: "../common.gradle"
 android {
-    compileSdkVersion AndroidVersion.compileSdkVersion
-    buildToolsVersion AndroidVersion.buildToolsVersion
+    compileSdkVersion rootProject.ext.AndroidVersions.compileSdkVersion
+    buildToolsVersion rootProject.ext.AndroidVersions.buildToolsVersion
 
     defaultConfig {
         applicationId "com.adair.wanandroid"
-        minSdkVersion AndroidVersion.minSdkVersion
-        targetSdkVersion AndroidVersion.targetSdkVersion
-        versionCode AndroidVersion.versionCode
-        versionName AndroidVersion.versionName
+        minSdkVersion rootProject.ext.AndroidVersions.minSdkVersion
+        targetSdkVersion rootProject.ext.AndroidVersions.targetSdkVersion
+        versionCode rootProject.ext.AndroidVersions.versionCode
+        versionName rootProject.ext.AndroidVersions.versionName
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -21,16 +21,8 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation Libs.kotlin_stdlib
-    implementation Libs.androidx_appcompat
-    implementation Libs.androidx_core_ktx
-    implementation Libs.androidx_constraintlayout
-    testImplementation Libs.junit
-    androidTestImplementation Libs.test_junit
-    androidTestImplementation Libs.test_espresso_core
+
 }

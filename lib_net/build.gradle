@@ -1,14 +1,14 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
-
+apply from: "../common.gradle"
 android {
-    compileSdkVersion AndroidVersion.compileSdkVersion
-    buildToolsVersion AndroidVersion.buildToolsVersion
+    compileSdkVersion rootProject.ext.AndroidVersions.compileSdkVersion
+    buildToolsVersion rootProject.ext.AndroidVersions.buildToolsVersion
 
     defaultConfig {
-        minSdkVersion AndroidVersion.minSdkVersion
-        targetSdkVersion AndroidVersion.targetSdkVersion
+        minSdkVersion rootProject.ext.AndroidVersions.minSdkVersion
+        targetSdkVersion rootProject.ext.AndroidVersions.targetSdkVersion
         versionCode 1
         versionName "1.0"
 
@@ -25,22 +25,14 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation Libs.kotlin_stdlib
-    implementation Libs.androidx_appcompat
-    implementation Libs.androidx_core_ktx
-    testImplementation Libs.junit
-    androidTestImplementation Libs.test_junit
-    androidTestImplementation Libs.test_espresso_core
-
-    implementation(Libs.gson)
-    implementation(Libs.okHttp)
-    implementation(Libs.okHttp_logging_interceptor)
-    implementation(Libs.retrofit) {
-        exclude group: 'com.squareup.okhttp3'
-    }
-    implementation(Libs.retrofit_gson) {
-        exclude group: 'com.squareup.retrofit2'
-        exclude group: 'com.google.code.gson'
-    }
+//    implementation(Libs.gson)
+//    implementation(Libs.okHttp)
+//    implementation(Libs.okHttp_logging_interceptor)
+//    implementation(Libs.retrofit) {
+//        exclude group: 'com.squareup.okhttp3'
+//    }
+//    implementation(Libs.retrofit_gson) {
+//        exclude group: 'com.squareup.retrofit2'
+//        exclude group: 'com.google.code.gson'
+//    }
 }

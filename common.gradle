@@ -1,0 +1,11 @@
+//共通的依赖
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation rootProject.ext.Deps.kotlinStdlibJdk
+    implementation rootProject.ext.Deps.androidxAppcompat
+    implementation rootProject.ext.Deps.androidxCoreKtx
+    implementation rootProject.ext.Deps.androidxConstraintLayout
+    testImplementation rootProject.ext.Deps.junit
+    androidTestImplementation rootProject.ext.Deps.junitTest
+    androidTestImplementation rootProject.ext.Deps.espressoCore
+}

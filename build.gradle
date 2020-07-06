@@ -1,22 +1,16 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
-
 buildscript {
-    repositories {
-        google()
-        jcenter()
-
-    }
+    //将此版本号引入放在包包内，buildScript包是优先执行
+    apply from: "config.gradle"
+    addRepositories(repositories)
     dependencies {
-        classpath Plugins.gradle
-        classpath Plugins.kotlin_gradle_plugin
+        classpath Plugins.androidBuildGradle
+        classpath Plugins.kotlinGradlePlugin
     }
 }
 
 allprojects {
-    repositories {
-        google()
-        jcenter()
-    }
+    addRepositories(repositories)
 }
 
 task clean(type: Delete) {
