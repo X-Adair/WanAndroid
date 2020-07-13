@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav"
+    app:startDestination="@id/homeFragment">
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.adair.wanandroid.ui.home.HomeFragment"
+        android:label="@string/main_title_home"
+        tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/knowledgeFragment"
+        android:name="com.adair.wanandroid.ui.knowledge.KnowledgeFragment"
+        android:label="@string/main_title_knowledge"
+        tools:layout="@layout/fragment_knowledge" />
+    <fragment
+        android:id="@+id/officialAccountsFragment"
+        android:name="com.adair.wanandroid.ui.officialaccounts.OfficialAccountsFragment"
+        android:label="@string/main_title_official_accounts"
+        tools:layout="@layout/fragment_official_accounts" />
+    <fragment
+        android:id="@+id/navigationFragment"
+        android:name="com.adair.wanandroid.ui.navigation.NavigationFragment"
+        android:label="@string/main_title_navigation"
+        tools:layout="@layout/fragment_navigation" />
+    <fragment
+        android:id="@+id/projectFragment"
+        android:name="com.adair.wanandroid.ui.project.ProjectFragment"
+        android:label="@string/main_title_project"
+        tools:layout="@layout/fragment_project" />
+</navigation>

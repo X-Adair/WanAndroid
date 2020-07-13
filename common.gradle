@@ -12,5 +12,5 @@ dependencies {
     implementation rootProject.ext.Deps.kotlinCoroutines
     implementation rootProject.ext.Deps.viewModelKtx
     implementation rootProject.ext.Deps.liveDataKtx
-    implementation rootProject.ext.Deps.ifecycleCommonJava8
+    implementation rootProject.ext.Deps.lfecycleCommonJava8
 }

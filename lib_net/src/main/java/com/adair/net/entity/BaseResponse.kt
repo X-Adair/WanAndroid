@@ -1,6 +1,5 @@
 package com.adair.net.entity
 
-import com.adair.net.exception.NotLoginException
 import com.adair.net.exception.ServiceUnknownException
 
 /**
@@ -11,15 +10,16 @@ import com.adair.net.exception.ServiceUnknownException
  * @version v1.0
  * @date 2020/7/6
  */
-data class BaseResponse<out T>(val code: Int, val message: String, val data: T) {
+open class BaseResponse<out T>(val errorCode: Int, val errorMsg: String, val data: T) {
 
-    fun coverData(): T {
-        if (code == 0) {
+    open fun isSuccessful(): Boolean {
+        return errorCode == 0
+    }
+
+    open fun coverData(): T {
+        if (isSuccessful()) {
             return data
         }
-        if (code == -1001) {
-            throw NotLoginException(code, message)
-        }
-        throw ServiceUnknownException(code, message)
+        throw ServiceUnknownException(errorCode, errorMsg)
     }
 }

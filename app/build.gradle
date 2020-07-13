@@ -32,9 +32,11 @@ android {
 
 dependencies {
     implementation project(path: ':lib_net')
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation project(path: ':lib_glide')
 
     implementation(rootProject.ext.Deps.navigationKtx)
     implementation(rootProject.ext.Deps.navigationUiKtx)
+    implementation(rootProject.ext.Deps.material)
 
 }
