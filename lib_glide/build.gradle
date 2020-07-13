@@ -1,7 +1,9 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 apply from: "../common.gradle"
+
 android {
     compileSdkVersion rootProject.ext.AndroidVersions.compileSdkVersion
 
@@ -12,7 +14,7 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        consumerProguardFiles 'consumer-rules.pro'
+        consumerProguardFiles "consumer-rules.pro"
     }
 
     buildTypes {
@@ -24,15 +26,10 @@ android {
 }
 
 dependencies {
-
-    api rootProject.ext.Deps.gson
-    api rootProject.ext.Deps.okHttp
-    api rootProject.ext.Deps.okHttpLoggingInterceptor
-    api(rootProject.ext.Deps.retrofit) {
-        exclude group: 'com.squareup.okhttp3'
-    }
-    api(rootProject.ext.Deps.retrofitGsonConverter) {
-        exclude group: 'com.squareup.retrofit2'
-        exclude group: 'com.google.code.gson'
+    api rootProject.ext.Deps.glide
+    kapt rootProject.ext.Deps.glideCompiler
+    //不依赖其他项,okHttp使用lib_net模块中定义的版本，保持版本一致性
+    api(rootProject.ext.Deps.glideOkhttp3Integration) {
+        transitive = false
     }
 }

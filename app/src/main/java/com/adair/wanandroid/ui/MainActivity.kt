@@ -1,7 +1,8 @@
-package com.adair.wanandroid
+package com.adair.wanandroid.ui
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import com.adair.wanandroid.R
 
 class MainActivity : AppCompatActivity() {
 

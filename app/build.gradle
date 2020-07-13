@@ -13,6 +13,8 @@ android {
         versionCode rootProject.ext.AndroidVersions.versionCode
         versionName rootProject.ext.AndroidVersions.versionName
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        multiDexEnabled true
     }
 
     buildTypes {
@@ -21,8 +23,18 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 }
 
 dependencies {
+    implementation project(path: ':lib_net')
+    implementation project(path: ':lib_glide')
+
+    implementation(rootProject.ext.Deps.navigationKtx)
+    implementation(rootProject.ext.Deps.navigationUiKtx)
 
 }
