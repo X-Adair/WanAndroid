@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- https://developer.android.com/guide/topics/data/autobackup 自定备份规则-->
+<full-backup-content>
+    <include
+        domain="sharedpref"
+        path="." />
+</full-backup-content>

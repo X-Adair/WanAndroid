@@ -2,13 +2,18 @@ package com.adair.wanandroid.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.Navigation
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
-import androidx.navigation.ui.setupWithNavController
 import com.adair.wanandroid.R
 import kotlinx.android.synthetic.main.activity_main.*
 
+/**
+ * 首页主页面
+ *
+ * @author XuShuai
+ * @version v1.0
+ * @date 2020/7/7
+ */
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
