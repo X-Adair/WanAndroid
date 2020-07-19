@@ -1,5 +1,4 @@
-include ':lib_style'
-include ':lib_glide'
 rootProject.name = 'WanAndroid'
 include ':app'
 include ':lib_net'
+include ':lib_glide'

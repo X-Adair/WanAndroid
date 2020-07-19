@@ -1,4 +1,4 @@
-package com.adair.style
+package com.adair.wanandroid.common.extends
 
 import android.graphics.Color
 import android.view.View

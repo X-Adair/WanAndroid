@@ -5,7 +5,8 @@ import android.os.Bundle
 import android.os.Handler
 import androidx.appcompat.app.AppCompatActivity
 import com.adair.wanandroid.R
-import com.adair.wanandroid.extends.postDelayed2
+import com.adair.wanandroid.common.extends.hideBottomUi
+import com.adair.wanandroid.common.extends.postDelayed2
 
 /**
  * 欢迎页
@@ -17,10 +18,12 @@ import com.adair.wanandroid.extends.postDelayed2
 class SplashActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        hideBottomUi()
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
         Handler().postDelayed2(2000L) {
             toMain()
+            finish()
         }
     }
 

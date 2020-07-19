@@ -2,12 +2,14 @@ static def addRepositories(RepositoryHandler handler) {
     addAliYunRepos(handler)
 }
 
+//添加标准库
 static def addStandardRepos(RepositoryHandler handler) {
     handler.google()
     handler.jcenter()
     handler.maven { url 'https://jitpack.io' }
 }
 
+//添加使用国内阿里镜像库
 static def addAliYunRepos(RepositoryHandler handler) {
     handler.maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
     handler.maven { url 'http://maven.aliyun.com/nexus/content/repositories/jcenter' }
@@ -34,7 +36,7 @@ ext {
 
     //第三方依赖版本号
     Versions = [
-            gradleVersion            : "4.0.0",
+            gradleVersion            : '4.0.1',
             kotlinVersion            : "1.3.72",
             kotlinCoroutinesVersion  : "1.3.7",
             navigationVersion        : "2.2.0",
