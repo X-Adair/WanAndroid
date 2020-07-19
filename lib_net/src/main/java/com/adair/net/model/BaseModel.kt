@@ -1,4 +1,4 @@
-package com.adair.net.entity
+package com.adair.net.model
 
 import com.adair.net.exception.ServiceUnknownException
 
@@ -10,7 +10,7 @@ import com.adair.net.exception.ServiceUnknownException
  * @version v1.0
  * @date 2020/7/6
  */
-open class BaseResponse<out T>(val errorCode: Int, val errorMsg: String, val data: T) {
+open class BaseModel<out T>(val errorCode: Int, val errorMsg: String, val data: T) {
 
     open fun isSuccessful(): Boolean {
         return errorCode == 0

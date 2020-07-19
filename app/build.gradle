@@ -38,4 +38,11 @@ dependencies {
     implementation(rootProject.ext.Deps.navigationUiKtx)
     implementation(rootProject.ext.Deps.material)
 
+    implementation(rootProject.ext.Deps.koinAndroid)
+    implementation(rootProject.ext.Deps.koinAndroidxScope)
+    implementation(rootProject.ext.Deps.koinAndroidxViewModel)
+    implementation(rootProject.ext.Deps.koinAndroidxFragment)
+    implementation(rootProject.ext.Deps.koinAndroidxExt)
+
+    implementation(rootProject.ext.Deps.logger)
 }

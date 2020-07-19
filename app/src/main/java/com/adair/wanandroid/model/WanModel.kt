@@ -1,11 +1,11 @@
-package com.adair.wanandroid.entity
+package com.adair.wanandroid.model
 
-import com.adair.net.entity.BaseResponse
+import com.adair.net.model.BaseModel
 import com.adair.net.exception.NotLoginException
 import com.adair.net.exception.ServiceUnknownException
 
 
-class WanResponse<out T>(errorCode: Int, errorMsg: String, data: T) : BaseResponse<T>(
+class WanModel<out T>(errorCode: Int, errorMsg: String, data: T) : BaseModel<T>(
     errorCode, errorMsg, data
 ) {
     companion object {

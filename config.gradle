@@ -46,6 +46,7 @@ ext {
             glideVersion             : "4.11.0",
             smartRefreshLayoutVersion: "2.0.1",
             immersionbarVersion      : "3.0.0",
+            koinVersion              : "2.1.6",
     ]
 
     //插件依赖
@@ -111,6 +112,21 @@ ext {
             androidAutioSize             : "me.jessyan:autosize:1.2.1",
 
             //RecyclerView Adapter(https://github.com/CymChad/BaseRecyclerViewAdapterHelper)
-            baseRecyclerViewAdapterHelper: "com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.4"
+            baseRecyclerViewAdapterHelper: "com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.4",
+
+
+            //依赖注入koin (https://github.com/InsertKoinIO/koin)
+            koinAndroid                  : "org.koin:koin-android:${Versions.koinVersion}",
+            // Koin AndroidX Scope features
+            koinAndroidxScope            : "org.koin:koin-androidx-scope:${Versions.koinVersion}",
+            // Koin AndroidX ViewModel features
+            koinAndroidxViewModel        : "org.koin:koin-androidx-viewmodel:${Versions.koinVersion}",
+            // Koin AndroidX Fragment features
+            koinAndroidxFragment         : "org.koin:koin-androidx-fragment:${Versions.koinVersion}",
+            // Koin AndroidX Experimental features
+            koinAndroidxExt              : "org.koin:koin-androidx-ext:${Versions.koinVersion}",
+
+            //日志主键(https://github.com/orhanobut/logger)
+            logger                       : "com.orhanobut:logger:2.2.0"
     ]
 }
