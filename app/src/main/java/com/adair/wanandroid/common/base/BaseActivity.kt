@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity
  * @date 2020/7/18
  */
 open class BaseActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }

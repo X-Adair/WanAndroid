@@ -67,6 +67,11 @@ ext {
             junitTest                    : "androidx.test.ext:junit:1.1.1",
             espressoCore                 : "androidx.test.espresso:espresso-core:3.2.0",
 
+            //google jitpack组件
+
+            //ViewPager2(https://developer.android.google.cn/jetpack/androidx/releases/viewpager2)
+            viewpager2                   : "androidx.viewpager2:viewpager2:1.0.0",
+
 
             //navigation(https://developer.android.google.cn/guide/navigation/navigation-getting-started)
             navigationKtx                : "androidx.navigation:navigation-fragment-ktx:${Versions.navigationVersion}",
@@ -127,6 +132,9 @@ ext {
             koinAndroidxExt              : "org.koin:koin-androidx-ext:${Versions.koinVersion}",
 
             //日志主键(https://github.com/orhanobut/logger)
-            logger                       : "com.orhanobut:logger:2.2.0"
+            logger                       : "com.orhanobut:logger:2.2.0",
+
+            //banner
+            banner                       : "com.youth.banner:banner:2.1.0",
     ]
 }

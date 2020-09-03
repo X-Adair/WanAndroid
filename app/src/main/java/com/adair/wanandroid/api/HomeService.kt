@@ -1,6 +1,6 @@
 package com.adair.wanandroid.api
 
-import com.adair.wanandroid.entity.Banner
+import com.adair.wanandroid.entity.BannerEntity
 import com.adair.wanandroid.model.WanModel
 import retrofit2.http.GET
 
@@ -14,5 +14,5 @@ import retrofit2.http.GET
 interface HomeService {
 
     @GET("/banner/json")
-    suspend fun getBanner(): WanModel<List<Banner>>
+    suspend fun getBanner(): WanModel<List<BannerEntity>>
 }

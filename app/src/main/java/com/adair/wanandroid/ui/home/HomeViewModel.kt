@@ -1,11 +1,14 @@
 package com.adair.wanandroid.ui.home
 
 import android.app.Application
-import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.asLiveData
+import androidx.lifecycle.liveData
+import com.adair.net.model.Result
 import com.adair.wanandroid.common.base.BaseAndroidViewModel
-import com.adair.wanandroid.entity.Banner
-import com.orhanobut.logger.Logger
-import kotlinx.coroutines.GlobalScope
+import com.adair.wanandroid.entity.BannerEntity
+import kotlinx.coroutines.flow.catch
+import kotlinx.coroutines.flow.onStart
 
 /**
  * 主页ViewModel
@@ -17,34 +20,22 @@ import kotlinx.coroutines.GlobalScope
 class HomeViewModel(application: Application, private val homeRepository: HomeRepository) :
     BaseAndroidViewModel(application) {
 
-    private val bannerData = MutableLiveData<List<Banner>>()
-
-    fun getBannerData(): MutableLiveData<List<Banner>> {
-        return bannerData
-    }
-
-    fun loadBanner() {
-        launcher<List<Banner>>(GlobalScope) {
-
-            onStart {
-                Logger.d("开始请求数据")
-            }
-
-            onRequest {
-                homeRepository.getBanner()
-            }
-
-            onSuccess {
-                bannerData.value = it
-            }
-
-            onError {
-                Logger.e(it, "错误：")
-            }
-
-            onComplete {
-                Logger.d("请求数据完成")
-            }
+    val bannerData = liveData<Result<List<BannerEntity>>> {
+        emit(Result.Loading)
+        try {
+            val data = homeRepository.getBanner()
+            emit(Result.Success(data))
+        } catch (e: Exception) {
+            emit(Result.Error(e))
         }
     }
+
+    val bannerDataV2: LiveData<Result<List<BannerEntity>>> = homeRepository.getBannerV2()
+        .onStart {
+            emit(Result.Loading)
+        }
+        .catch { e ->
+            emit(Result.Error(e))
+        }
+        .asLiveData()
 }
