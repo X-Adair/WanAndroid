@@ -12,7 +12,7 @@ import android.view.ViewGroup
  * @version v1.0
  * @date 2020/8/11
  */
-open class BaseLazyFragment : BaseFragment() {
+abstract class BaseLazyFragment : BaseFragment() {
 
     //是否完成View的初始化
     private var isViewOk = false

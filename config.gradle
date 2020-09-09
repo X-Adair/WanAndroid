@@ -106,6 +106,10 @@ ext {
             //刷新界面库(https://github.com/scwang90/SmartRefreshLayout)
             //核心库
             smartRefreshLayout           : "com.scwang.smart:refresh-layout-kernel:${Versions.smartRefreshLayoutVersion}",
+            //经典刷新头
+            smartClassics                : "com.scwang.smart:refresh-header-classics:${Versions.smartRefreshLayoutVersion}",
+            //material 官方刷新头
+            smartMaterial                : "com.scwang.smart:refresh-header-material:${Versions.smartRefreshLayoutVersion}",
 
             //沉浸式状态栏(https://github.com/gyf-dev/ImmersionBar)
             immersionBar                 : "com.gyf.immersionbar:immersionbar:${Versions.immersionbarVersion}",

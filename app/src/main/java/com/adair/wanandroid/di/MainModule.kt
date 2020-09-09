@@ -1,6 +1,7 @@
 package com.adair.wanandroid.di
 
 import com.adair.net.RetrofitFactory
+import com.adair.wanandroid.api.HomeService
 import com.adair.wanandroid.ui.home.HomeRepository
 import com.adair.wanandroid.ui.home.HomeViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
@@ -16,6 +17,7 @@ import org.koin.dsl.module
 
 val otherModule = module {
     single { RetrofitFactory.INSTANCE }
+    single { RetrofitFactory.INSTANCE.create(HomeService::class.java) }
 }
 
 val repoModule = module {

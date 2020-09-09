@@ -1,6 +1,5 @@
 package com.adair.wanandroid.ui.home
 
-import com.adair.net.RetrofitFactory
 import com.adair.net.model.Result
 import com.adair.wanandroid.api.HomeService
 import com.adair.wanandroid.common.base.BaseRepository
@@ -15,20 +14,14 @@ import kotlinx.coroutines.flow.flow
  * @version v1.0
  * @date 2020/7/19
  */
-class HomeRepository constructor(private val retrofit: RetrofitFactory) : BaseRepository() {
+class HomeRepository constructor(private val homeService: HomeService) : BaseRepository() {
 
     /**
      * 请求banner数据
      */
-    suspend fun getBanner(): List<BannerEntity> {
-        return retrofit.create(HomeService::class.java)
-            .getBanner()
-            .coverData()
-    }
-
-    fun getBannerV2(): Flow<Result<List<BannerEntity>>> {
+    fun getBanner(): Flow<Result<List<BannerEntity>>> {
         return flow<Result<List<BannerEntity>>> {
-            val data = retrofit.create(HomeService::class.java)
+            val data = homeService
                 .getBanner()
                 .coverData()
             emit(Result.Success(data))

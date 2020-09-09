@@ -38,18 +38,35 @@ dependencies {
     implementation(rootProject.ext.Deps.navigationUiKtx)
     implementation(rootProject.ext.Deps.material)
 
+    implementation(rootProject.ext.Deps.viewpager2)
+
+    //koin 依赖注入组件
     implementation(rootProject.ext.Deps.koinAndroid)
     implementation(rootProject.ext.Deps.koinAndroidxScope)
     implementation(rootProject.ext.Deps.koinAndroidxViewModel)
     implementation(rootProject.ext.Deps.koinAndroidxFragment)
     implementation(rootProject.ext.Deps.koinAndroidxExt)
 
+    //日志组件
     implementation(rootProject.ext.Deps.logger)
+
+    //沉浸式适配
+    implementation(rootProject.ext.Deps.immersionBar)
+    implementation(rootProject.ext.Deps.immersionBarKtx)
+    implementation(rootProject.ext.Deps.immersionBarFragment)
+
+    //界面适配
+    implementation(rootProject.ext.Deps.androidAutioSize)
+
+    //UI 库
 
     implementation(rootProject.ext.Deps.banner) {
         exclude group: 'androidx.viewpager2', module: 'viewpager2'
     }
-    implementation(rootProject.ext.Deps.viewpager2)
 
     implementation(rootProject.ext.Deps.baseRecyclerViewAdapterHelper)
+
+    //下拉刷新
+    implementation(rootProject.ext.Deps.smartRefreshLayout)
+    implementation(rootProject.ext.Deps.smartMaterial)
 }

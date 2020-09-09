@@ -4,12 +4,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.adair.net.model.Result
 import com.adair.wanandroid.R
-import com.orhanobut.logger.Logger
-import com.youth.banner.Banner
+import com.adair.wanandroid.common.base.BaseFragment
+import kotlinx.android.synthetic.main.fragment_home.*
+import kotlinx.android.synthetic.main.header_home_banner.view.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 /**
@@ -19,8 +20,7 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
  * @version v1.0
  * @date 2020/7/19
  */
-class HomeFragment : Fragment() {
-
+class HomeFragment : BaseFragment() {
 
     companion object {
         @JvmStatic
@@ -29,7 +29,7 @@ class HomeFragment : Fragment() {
 
     private val homeViewModel: HomeViewModel by viewModel()
     private lateinit var articleAdapter: ArticleAdapter
-    private lateinit var banner: Banner<com.adair.wanandroid.entity.BannerEntity, HomeBannerAdapter>
+    private lateinit var bannerAdapter: HomeBannerAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,43 +43,27 @@ class HomeFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_home, container, false)
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        initViews()
-    }
+    override fun initViews(view: View, savedInstanceState: Bundle?) {
+        val headerView = LayoutInflater.from(context).inflate(R.layout.header_home_banner, null)
+        headerView.banner.apply {
+            addBannerLifecycleObserver(viewLifecycleOwner)
+        }
 
+        articleAdapter = ArticleAdapter(R.layout.item_home_article)
+        articleAdapter.addHeaderView(headerView)
 
-    private fun initViews() {
+        rvArticle.apply {
+            layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+            adapter = articleAdapter
+        }
+
         homeViewModel.bannerData.observe(viewLifecycleOwner, Observer {
             when (it) {
-                is Result.Loading -> {
-                    Logger.d("加载中")
-                }
-
                 is Result.Success -> {
-                    Logger.d(it.data.toString())
-                }
-                is Result.Error -> {
-                    Logger.e(it.throwable, it.throwable.message+"")
-                }
-            }
-        })
-
-        homeViewModel.bannerDataV2.observe(viewLifecycleOwner, Observer {
-            when (it) {
-                is Result.Loading -> {
-                    Logger.d("加载中")
-                }
-
-                is Result.Success -> {
-                    Logger.d(it.data.toString())
-                }
-                is Result.Error -> {
-                    Logger.e(it.throwable, "")
+                    bannerAdapter = HomeBannerAdapter(it.data)
+                    headerView.banner.adapter = bannerAdapter
                 }
             }
         })
     }
-
-
 }

@@ -14,8 +14,7 @@ import androidx.fragment.app.Fragment
  * @version v1.0
  * @date 2020/7/18
  */
-open class BaseFragment : Fragment() {
-
+abstract class BaseFragment : Fragment() {
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -25,7 +24,11 @@ open class BaseFragment : Fragment() {
         super.onCreate(savedInstanceState)
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         return super.onCreateView(inflater, container, savedInstanceState)
     }
 
@@ -35,7 +38,13 @@ open class BaseFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        initViews(view, savedInstanceState)
     }
+
+    /**
+     * 初始化View
+     */
+    abstract fun initViews(view: View, savedInstanceState: Bundle?)
 
     override fun onStart() {
         super.onStart()
