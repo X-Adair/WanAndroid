@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="msl_loading">加载中…</string>
+    <string name="msl_error">似乎出了点问题</string>
+    <string name="msl_empty">还没有内容</string>
+</resources>

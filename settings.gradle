@@ -1,3 +1,4 @@
+include ':lib_multiple_status_layout'
 rootProject.name = 'WanAndroid'
 include ':app'
 include ':lib_net'

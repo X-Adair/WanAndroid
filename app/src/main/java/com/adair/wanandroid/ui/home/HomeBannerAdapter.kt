@@ -19,7 +19,7 @@ import kotlinx.android.synthetic.main.item_home_banner.view.*
  * @date 2020/8/18
  */
 class HomeBannerAdapter(data: List<BannerEntity>) :
-    BannerAdapter<BannerEntity, BannerViewHolder>(data) {
+    BannerAdapter<BannerEntity, HomeBannerAdapter.BannerViewHolder>(data) {
 
     override fun onCreateHolder(parent: ViewGroup?, viewType: Int): BannerViewHolder {
         val view = LayoutInflater.from(parent?.context).inflate(item_home_banner,
@@ -38,6 +38,7 @@ class HomeBannerAdapter(data: List<BannerEntity>) :
             .into(holder.itemView.ivCover)
         holder.itemView.tvTitle.text = data.title
     }
+
+    class BannerViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
 }
 
-class BannerViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
